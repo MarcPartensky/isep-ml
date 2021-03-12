@@ -75,17 +75,20 @@ app = Flask(__name__)
 app.host = "localhost"
 
 
-@app.route("/", methods=["POST"])
+@app.route("/")
 def index() -> str:
     """Ask questions to the dumb bot."""
-    print(request.form)
-    message = request.form["message"]
-    print("message:", message)
-    searcher = GreedySearchDecoder(encoder, decoder)
-    output_words = evaluate(encoder, decoder, searcher, voc, message)
-    output_words[:] = [x for x in output_words if not (x == "EOS" or x == "PAD")]
-    answer = " ".join(output_words)
-    return dict(answer=answer)
+    if request.method == "POST":
+        print(request.form)
+        message = request.form["message"]
+        print("message:", message)
+        searcher = GreedySearchDecoder(encoder, decoder)
+        output_words = evaluate(encoder, decoder, searcher, voc, message)
+        output_words[:] = [x for x in output_words if not (x == "EOS" or x == "PAD")]
+        answer = " ".join(output_words)
+        return dict(answer=answer)
+    else:
+        return "This API only supports POST requests with a `message` POST variable."
 
 
 if __name__ == "__main__":

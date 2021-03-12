@@ -5,4 +5,5 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["flask", "run"]
+# ENTRYPOINT ["flask", "run"]
+# ENTRYPOINT ["gunicorn", "wsgi:app"]
