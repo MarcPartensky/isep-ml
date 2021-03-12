@@ -1,5 +1,9 @@
-jedi==0.18.0
+click==7.1.2
+Flask==1.1.2
+itsdangerous==1.1.0
+Jinja2==2.11.3
+MarkupSafe==1.1.1
 numpy==1.20.1
-parso==0.8.1
 torch==1.8.0
 typing-extensions==3.7.4.3
+Werkzeug==1.0.1
