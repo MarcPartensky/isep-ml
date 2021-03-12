@@ -23,9 +23,6 @@ from bot import encoder, decoder, voc
 # decoder_n_layers = 2
 # dropout = 0.1
 
-app = Flask(__name__)
-
-
 # def load() -> tuple:
 #     """load bot stuff."""
 #     # read vocs
@@ -73,18 +70,23 @@ app = Flask(__name__)
 
 # encoder, decoder, searcher, voc = load()
 
-@app.route('/', methods=["POST"])
+app = Flask(__name__)
+
+app.host = "localhost"
+
+
+@app.route("/", methods=["POST"])
 def index() -> str:
     """Ask questions to the dumb bot."""
     print(request.form)
-    message = request.form['message']
-    print('message:', message)
+    message = request.form["message"]
+    print("message:", message)
     searcher = GreedySearchDecoder(encoder, decoder)
     output_words = evaluate(encoder, decoder, searcher, voc, message)
-    output_words[:] = [x for x in output_words if not (x == 'EOS' or x == 'PAD')]
-    answer = ' '.join(output_words) 
-    print('answer', answer)
-    return answer
+    output_words[:] = [x for x in output_words if not (x == "EOS" or x == "PAD")]
+    answer = " ".join(output_words)
+    return dict(answer=answer)
 
-if __name__ == '__main__': 
-    app.run(host='0.0.0.0', debug=True)
+
+if __name__ == "__main__":
+    app.run(host="localhost", debug=False)
