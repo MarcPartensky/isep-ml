@@ -72,10 +72,10 @@ from bot import encoder, decoder, voc
 
 app = Flask(__name__)
 
-app.host = "localhost"
+# app.host = "localhost"
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index() -> str:
     """Ask questions to the dumb bot."""
     if request.method == "POST":
