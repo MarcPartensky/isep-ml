@@ -2,10 +2,12 @@
 Chatbot API using [based on a pytorch tutorial](https://pytorch.org/tutorials/beginner/chatbot_tutorial.html) hosted on https://ialab.marcpartensky.com.
 
 ## Usage
+![hi](https://cdn.discordapp.com/attachments/729992302575091718/820346968995266611/ialab.png)
+
 ```sh
 http -f POST https://ialab.marcpartensky.com message=hi
 ```
-![hi](https://cdn.discordapp.com/attachments/729992302575091718/820346968995266611/ialab.png)
+
 ![how are you](https://cdn.discordapp.com/attachments/729992302575091718/820347299838033960/howareyou.png)
 
 ## Deploy with docker
