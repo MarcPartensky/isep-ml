@@ -8,8 +8,21 @@ http -f POST https://ialab.marcpartensky.com message=hi
 ```
 
 ## Deploy with docker
-```
+```sh
 docker run marcpartensky/ialab
+```
+
+## Deploy yourself
+
+### Dependencies
+* python3.9.2
+
+### Commands
+```sh
+git clone https://github.com/marcpartensky/ialab
+cd ialab
+pip install -r requirements.txt
+flask run
 ```
 
 ## Train it yourself
