@@ -7,4 +7,4 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # ENTRYPOINT ["flask", "run"]
-# ENTRYPOINT ["gunicorn", "wsgi:app"]
+ENTRYPOINT ["gunicorn", "server:app"]
