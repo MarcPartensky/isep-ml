@@ -10,6 +10,8 @@ from rich import print
 from bot import GreedySearchDecoder, evaluate
 from bot import encoder, decoder, voc
 
+from datetime import datetime
+
 # PATH = "./data/save/cb_model/cornell movie-dialogs corpus/2-2_500/4000_checkpoint.tar"
 # corpus_name = "cornell movie-dialogs corpus"
 # corpus = "./data/cornell movie-dialogs corpus"
@@ -74,13 +76,36 @@ app = Flask(
     __name__, static_url_path="", static_folder="static", template_folder="templates"
 )
 
-# app.host = "localhost"
+
+# @socketio.on('message')
+# def handle_message(data):
+#     print('received message: ' + data)
+
+
+@app.route("/add", methods=["POST"])
+def add() -> str:
+    """Add a message."""
+    with open("context.yml", "r") as stream:
+        context = yaml.safe_load(stream)
+
+    context["conversations"].append(
+        dict(
+            content=request.POST["content"],
+            date=str(datetime.minute) + ":" + str(datetime.second),
+            author="user",
+        )
+    )
+
+    with open("context.yml", "w") as stream:
+        context = yaml.safe_load(stream)
+
+    return "ok"
 
 
 @app.route("/", methods=["GET"])
 def get() -> str:
     """Get chat box."""
-    with open("context.yml") as stream:
+    with open("context.yml", "r") as stream:
         context = yaml.safe_load(stream)
     return render_template("index.html", **context)
 
