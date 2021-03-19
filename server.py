@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import os
-import torch
+import yaml
 
 # from bot import EncoderRNN, LuongAttnDecoderRNN, Voc, GreedySearchDecoder, evaluate, loadPrepareData
 from dotenv import load_dotenv
-from flask import Flask, request
+from flask import Flask, request, render_template
 from rich import print
 
 from bot import GreedySearchDecoder, evaluate
@@ -70,25 +70,32 @@ from bot import encoder, decoder, voc
 
 # encoder, decoder, searcher, voc = load()
 
-app = Flask(__name__)
+app = Flask(
+    __name__, static_url_path="", static_folder="static", template_folder="templates"
+)
 
 # app.host = "localhost"
 
 
-@app.route("/", methods=["GET", "POST"])
-def index() -> str:
-    """Ask questions to the dumb bot."""
-    if request.method == "POST":
-        print(request.form)
-        message = request.form["message"]
-        print("message:", message)
-        searcher = GreedySearchDecoder(encoder, decoder)
-        output_words = evaluate(encoder, decoder, searcher, voc, message)
-        output_words[:] = [x for x in output_words if not (x == "EOS" or x == "PAD")]
-        answer = " ".join(output_words)
-        return dict(answer=answer)
-    else:
-        return "This API only supports POST requests with a `message` POST variable."
+@app.route("/", methods=["GET"])
+def get() -> str:
+    """Get chat box."""
+    with open("conv.yml") as stream:
+        context = yaml.safe_load(stream)
+    return render_template("index.html", **context)
+
+
+@app.route("/", methods=["POST"])
+def post() -> str:
+    """Post a message to the bot."""
+    print(request.form)
+    message = request.form["message"]
+    print("message:", message)
+    searcher = GreedySearchDecoder(encoder, decoder)
+    output_words = evaluate(encoder, decoder, searcher, voc, message)
+    output_words[:] = [x for x in output_words if not (x == "EOS" or x == "PAD")]
+    answer = " ".join(output_words)
+    return dict(answer=answer)
 
 
 if __name__ == "__main__":

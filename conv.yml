@@ -1,0 +1,10 @@
+persons:
+  bot:
+    img: "/img/bot.jpg"
+  person:
+    name: "person"
+
+chat:
+  - message: "test"
+    date: "10/20"
+    author: "person"

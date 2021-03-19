@@ -258,7 +258,7 @@ voc, pairs = loadPrepareData(corpus, corpus_name, datafile, save_dir)
 # for pair in pairs[:10]:
 #     print(pair)
 
-"""Simplification de l'espace de mots (suppression des mots très peu utiliser), permet de simplifier le model à appriximer, améliorer la convergence et augmente la rapidité d'apprentissage."""
+"""Simplification de l'espace de mots (suppression des mots très peu utiliser), permet de simplifier le model à approximer, améliorer la convergence et augmente la rapidité d'apprentissage."""
 
 MIN_COUNT = 3    # Minimum word count threshold for trimming
 
