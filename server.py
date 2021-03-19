@@ -80,7 +80,7 @@ app = Flask(
 @app.route("/", methods=["GET"])
 def get() -> str:
     """Get chat box."""
-    with open("conv.yml") as stream:
+    with open("context.yml") as stream:
         context = yaml.safe_load(stream)
     return render_template("index.html", **context)
 
