@@ -124,4 +124,7 @@ def post() -> str:
 
 
 if __name__ == "__main__":
-    app.run(host="localhost", debug=False)
+    host = os.environ.get("HOST") or "localhost"
+    port = int(os.environ.get("PORT") or 80)
+    debug = bool(os.environ.get("DEBUG") or True)
+    app.run(host=host, port=port, debug=debug)
