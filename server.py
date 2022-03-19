@@ -128,7 +128,7 @@ if __name__ == "__main__":
     load_dotenv()
     print("Development mode enabled")
 
-    host = os.environ.get("HOST") or "localhost"
+    host = os.environ.get("HOST") or "0.0.0.0"
     port = int(os.environ.get("PORT") or 80)
     debug = bool(os.environ.get("DEBUG") or True)
     app.run(host=host, port=port, debug=debug)
