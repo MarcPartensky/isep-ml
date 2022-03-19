@@ -1,0 +1,13 @@
+persons:
+  bot:
+    image: "/img/bot.jpg"
+  user:
+    name: "Me"
+
+conversation:
+  - content: "Hi"
+    time: "[[ new DateNow() ]]"
+    person: "user"
+  - content: "hi"
+    time: "23:00"
+    person: "user"
