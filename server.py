@@ -4,7 +4,6 @@ import os
 import yaml
 
 # from bot import EncoderRNN, LuongAttnDecoderRNN, Voc, GreedySearchDecoder, evaluate, loadPrepareData
-from dotenv import load_dotenv
 from flask import Flask, request, render_template
 from rich import print
 
@@ -112,7 +111,7 @@ def get() -> str:
 
 
 @app.route("/", methods=["POST"])
-def post() -> str:
+def post() -> dict:
     """Post a message to the bot."""
     print(request.form)
     message = request.form["message"]
@@ -125,6 +124,10 @@ def post() -> str:
 
 
 if __name__ == "__main__":
+    from dotenv import load_dotenv
+    load_dotenv()
+    print("Development mode enabled")
+
     host = os.environ.get("HOST") or "localhost"
     port = int(os.environ.get("PORT") or 80)
     debug = bool(os.environ.get("DEBUG") or True)
