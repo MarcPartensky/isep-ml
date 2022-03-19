@@ -10,4 +10,4 @@ build: update
 push: build
 	docker-compose push ialab
 run:
-	docker-compose up -d ialab
+	docker-compose up -d ialab --force-recreate
