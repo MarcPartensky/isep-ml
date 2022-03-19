@@ -4,6 +4,8 @@ Chatbot API using [based on a pytorch tutorial](https://pytorch.org/tutorials/be
 ## Usage
 ![hi](https://cdn.discordapp.com/attachments/729992302575091718/820346968995266611/ialab.png)
 
+![how are you](https://cdn.discordapp.com/attachments/729992302575091718/820347299838033960/howareyou.png)
+
 ### Using [httpie](https://httpie.io/)
 ```sh
 http -f POST https://ialab.marcpartensky.com message="how are you"
@@ -18,8 +20,6 @@ curl -sX POST -F message="message how are you" localhost:8000
 # using ask.sh
 ./ask.sh how are you
 ```
-![how are you](https://cdn.discordapp.com/attachments/729992302575091718/820347299838033960/howareyou.png)
-
 ## Deploy with docker
 ```sh
 docker run -p 8000:8000 marcpartensky/ialab
