@@ -5,21 +5,11 @@ name = "pypi"
 
 [packages]
 pyyaml = "*"
-click = "*"
-colorama = "*"
-commonmark = "*"
 gunicorn = "*"
-itsdangerous = "*"
 numpy = "*"
 python-dotenv = "*"
 rich = "*"
 torch = "*"
-typing-extensions = "*"
-Flask = "*"
-Jinja2 = "*"
-MarkupSafe = "*"
-Pygments = "*"
-Werkzeug = "*"
 
 [dev-packages]
 
