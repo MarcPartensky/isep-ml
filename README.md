@@ -9,21 +9,28 @@ Chatbot API using [based on a pytorch tutorial](https://pytorch.org/tutorials/be
 ### Using [httpie](https://httpie.io/)
 ```sh
 http -f POST https://ialab.marcpartensky.com message="how are you"
-# running locally
+# running locally after cloning the repo
 http -f POST localhost:8000 message="how are you"
 ```
 ### Using [curl](https://curl.se/)
 ```sh
 curl -sX POST -F message="message how are you" https://ialab.marcpartensky.com
-# running locally
+# running locally after cloning
 curl -sX POST -F message="message how are you" localhost:8000
-# using ask.sh
+# using ask.sh after cloning
 ./ask.sh how are you
 ```
+
+### Or using simply the CLI without webserver
+```sh
+# using bot.py after cloning
+./bot.py
+```
+
 ## Deploy with docker
 ```sh
 docker run -p 8000:8000 marcpartensky/ialab
-# or using docker-compose
+# or using docker-compose after cloning
 docker-compose up -d
 ```
 
