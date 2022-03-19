@@ -6,6 +6,8 @@ update:
 	pipenv update
 	pipenv lock -r > requirements.txt
 build: update
-	docker build . -t marcpartensky/ialab
+	docker-compose build ialab
 push: build
-	docker push marcpartensky/ialab
+	docker-compose push ialab
+run:
+	docker-compose up -d ialab
