@@ -5,6 +5,5 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-ENV HOST 0.0.0.0
-ENV PORT 8000
-ENTRYPOINT ["gunicorn", "--bind", "$HOST:$PORT", "server:app"]
+EXPOSE 8000
+ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8000", "server:app"]
