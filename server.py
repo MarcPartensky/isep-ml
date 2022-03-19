@@ -73,7 +73,10 @@ from datetime import datetime
 # encoder, decoder, searcher, voc = load()
 
 app = Flask(
-    __name__, static_url_path="", static_folder="static", template_folder="templates"
+    __name__,
+    static_url_path="",
+    static_folder="static",
+    template_folder="templates"
 )
 
 
