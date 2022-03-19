@@ -5,7 +5,7 @@ bot:
 update:
 	pipenv update
 	pipenv lock -r > requirements.txt
-build:
+build: update
 	docker build . -t marcpartensky/ialab
 push: build
 	docker push marcpartensky/ialab
