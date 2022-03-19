@@ -1,6 +1,12 @@
 __pycache__
 .git
 .gitignore
-Dockerfile
 runtime.txt
+Procfile
+Dockerfile
+Makefile
+Pipfile
+Pipfile.lock
+.flaskenv
+context.yml
 "data/cornell movie-dialogs corpus"
