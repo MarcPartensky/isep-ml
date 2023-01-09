@@ -4,15 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
+# flask = "*"
 pyyaml = "*"
 gunicorn = "*"
 numpy = "*"
 python-dotenv = "*"
-rich = "*"
 torch = "*"
 
 [dev-packages]
+rich = "*"
 
 [requires]
 python_version = "3.9"
