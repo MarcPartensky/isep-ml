@@ -1,15 +1,16 @@
 FROM python:3.9.16 as training
 WORKDIR /root
 
-RUN pip install -y pipenv
-RUN pipenv lock -r > requirements.txt
+RUN pip install pipenv
+RUN pipenv install
+RUN pipenv run pip freeze  > requirements.txt
+
 COPY Pipfile Pipfile.lock bot.py download.sh ./
+RUN ./download.sh
 
 ENV TRAIN=yes
 ENV PARSE=yes
-
-RUN ./download.sh
-RUN ./bot.py
+RUN pipenv run ./bot.py
 
 FROM python:3.9.16-alpine as web
 WORKDIR /root

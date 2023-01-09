@@ -3,8 +3,7 @@ server:
 bot:
 	./bot.py
 train:
-	PARSE=yes TRAIN=yes ./bot.py
-	touch train
+	docker compose build train
 download:
 	./download.sh
 update:
