@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  ialab:
+    image: marcpartensky/ialab
+    volumes:
+      - ./data:/root/data
+
+  train:
+    image: marcpartensky/ialab
+    volumes:
+      - ./data:/root/data
+    environment:
+      TRAIN: yes
+      PARSE: yes
