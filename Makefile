@@ -2,6 +2,8 @@ server:
 	./server.py
 bot:
 	./bot.py
+train:
+	TRAIN=yes ./bot.py
 update:
 	pipenv update
 	pipenv lock -r > requirements.txt
