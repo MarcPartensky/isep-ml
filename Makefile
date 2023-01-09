@@ -3,7 +3,8 @@ server:
 bot:
 	./bot.py
 train:
-	TRAIN=yes ./bot.py
+	PARSE=yes TRAIN=yes ./bot.py
+	touch train
 download:
 	./download.sh
 update:

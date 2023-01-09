@@ -237,10 +237,11 @@ lines, conversations = loadLinesAndConversations(os.path.join(corpus, "utterance
 
 # Write new csv file
 print("\nWriting newly formatted file...")
-with open(datafile, 'w', encoding='utf-8') as outputfile:
-    writer = csv.writer(outputfile, delimiter=delimiter, lineterminator='\n')
-    for pair in extractSentencePairs(conversations):
-        writer.writerow(pair)
+if os.environ.get("PARSE"):
+    with open(datafile, 'w', encoding='utf-8') as outputfile:
+        writer = csv.writer(outputfile, delimiter=delimiter, lineterminator='\n')
+        for pair in extractSentencePairs(conversations):
+            writer.writerow(pair)
 
 # Print a sample of lines
 print("\nSample lines from file:")
@@ -1289,7 +1290,6 @@ encoder = encoder.to(device)
 decoder = decoder.to(device)
 print('Models built and ready to go!')
 
-
 ######################################################################
 # Run Training
 # ~~~~~~~~~~~~
@@ -1335,7 +1335,8 @@ for state in decoder_optimizer.state.values():
 
 # Run training iterations
 print("Starting Training!")
-trainIters(model_name, voc, pairs, encoder, decoder, encoder_optimizer, decoder_optimizer,
+if os.environ.get("TRAIN"):
+    trainIters(model_name, voc, pairs, encoder, decoder, encoder_optimizer, decoder_optimizer,
            embedding, encoder_n_layers, decoder_n_layers, save_dir, n_iteration, batch_size,
            print_every, save_every, clip, corpus_name, loadFilename)
 
