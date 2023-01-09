@@ -5,7 +5,4 @@ runtime.txt
 Procfile
 Dockerfile
 Makefile
-Pipfile
-Pipfile.lock
 .flaskenv
-"data/cornell movie-dialogs corpus"
