@@ -1,13 +1,15 @@
 version: "3.9"
-
 services:
   ialab:
     image: marcpartensky/ialab
-    restart: unless-stopped
     build:
-      context: .
-      dockerfile: ./Dockerfile
-    environment:
-      FLASK_APP: server.py
-    ports:
-      - "8000:8000"
+      target: web
+    volumes:
+      - ./data:/root/data
+
+  train:
+    image: marcpartensky/ialab
+    volumes:
+      - ./data:/root/data
+    build:
+      target: training
