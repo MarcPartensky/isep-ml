@@ -4,6 +4,8 @@ bot:
 	./bot.py
 train:
 	TRAIN=yes ./bot.py
+download:
+	./download.sh
 update:
 	pipenv update
 	pipenv lock -r > requirements.txt
