@@ -2,11 +2,11 @@ FROM python:3.9.16 as training
 WORKDIR /root
 
 RUN pip install pipenv
-RUN pipenv install
 RUN pipenv run pip freeze  > requirements.txt
 
-COPY Pipfile Pipfile.lock bot.py download.sh ./
-RUN ./download.sh
+COPY data data
+COPY Pipfile Pipfile.lock bot.py ./
+RUN pipenv install
 
 ENV TRAIN=yes
 ENV PARSE=yes
