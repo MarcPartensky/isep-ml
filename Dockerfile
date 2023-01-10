@@ -10,7 +10,7 @@ RUN pipenv install
 
 ENV TRAIN=yes
 ENV PARSE=yes
-RUN pipenv run ./bot.py
+# RUN pipenv run ./bot.py
 
 FROM python:3.9.16-alpine as web
 WORKDIR /root
