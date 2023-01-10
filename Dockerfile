@@ -10,6 +10,8 @@ RUN pipenv install
 
 ENV TRAIN=yes
 ENV PARSE=yes
+ENV CHECKPOINTS=yes
+
 # RUN pipenv run ./bot.py
 ENTRYPOINT ["pipenv", "run", "./bot.py"]
 
