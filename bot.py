@@ -1262,9 +1262,9 @@ if l:
 else:
     checkpoint_iter = None
 
-print("Resuming iterations from ", checkpoint_iter, "iterations.")
 
-if os.environ.get("CHECKPOINTS"):
+print("Resuming iterations from ", checkpoint_iter, "iterations.")
+if checkpoint_iter and os.environ.get("CHECKPOINTS"):
     loadFilename = os.path.join(save_dir, model_name, corpus_name,
                                '{}-{}_{}'.format(encoder_n_layers, decoder_n_layers, hidden_size),
                                '{}_checkpoint.tar'.format(checkpoint_iter))
