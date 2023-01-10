@@ -118,6 +118,7 @@ import json
 
 
 USE_CUDA = torch.cuda.is_available()
+print("not" if not USE_CUDA else "", "using CUDA")
 device = torch.device("cuda" if USE_CUDA else "cpu")
 
 

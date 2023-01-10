@@ -11,5 +11,7 @@ services:
     image: marcpartensky/ialab
     volumes:
       - ./data:/root/data
+    environment:
+      CHECKPOINTS: false
     build:
       target: training
