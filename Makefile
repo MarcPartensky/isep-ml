@@ -3,7 +3,7 @@ server:
 bot:
 	./bot.py
 train:
-	docker compose build train
+	docker compose up --build train
 download:
 	./download.sh
 update:
