@@ -1253,7 +1253,9 @@ dropout = 0.1
 batch_size = 64
 
 # Set checkpoint to load from; set to None if starting from scratch
-checkpoint_iter = 4000
+path = os.path.join(save_dir, "cb_model/movie-corpus/2-2_500")
+checkpoint_iter = max(int(path.replace("_checkpoint.tar", "")) for path in os.listdir(path))
+print("Resuming iterations from ", checkpoint_iter, "iterations.")
 
 if os.environ.get("CHECKPOINTS"):
     loadFilename = os.path.join(save_dir, model_name, corpus_name,
