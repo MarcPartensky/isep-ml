@@ -1,11 +1,11 @@
 version: "3.9"
 services:
   web:
-    image: marcpartensky/ialab
+    image: marcpartensky/ialab:latest
     build:
       target: web
-    volumes:
-      - ./data:/root/data
+    # volumes:
+    #   - ./data:/root/data
 
   train:
     image: marcpartensky/ialab:train
