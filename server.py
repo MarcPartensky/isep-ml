@@ -11,6 +11,9 @@ from bot import GreedySearchDecoder, evaluate
 from bot import encoder, decoder, voc
 
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # PATH = "./data/save/cb_model/cornell movie-dialogs corpus/2-2_500/4000_checkpoint.tar"
 # corpus_name = "cornell movie-dialogs corpus"
@@ -127,8 +130,6 @@ def post() -> dict:
 
 
 if __name__ == "__main__":
-    from dotenv import load_dotenv
-    load_dotenv()
     print("Development mode enabled")
 
     host = os.environ.get("HOST") or "0.0.0.0"

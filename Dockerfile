@@ -32,4 +32,5 @@ ENV PORT=80
 ENV FLASK_DEBUG=true
 
 # ENTRYPOINT ["flask", "run"]
-ENTRYPOINT ["gunicorn", "server:app"]
+# ENTRYPOINT ["gunicorn", "server:app"]
+ENTRYPOINT ["./server.py"]
