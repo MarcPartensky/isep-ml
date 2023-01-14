@@ -22,7 +22,7 @@ COPY --from=training /root/requirements.txt ./
 # COPY --from=training data data/save
 RUN pip install -r requirements.txt
 
-COPY data data/save
+COPY data data
 COPY bot.py server.py ./
 COPY templates templates
 COPY static static
