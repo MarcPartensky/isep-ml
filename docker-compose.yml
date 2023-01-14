@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  ialab:
+  web:
     image: marcpartensky/ialab
     build:
       target: web
@@ -8,7 +8,7 @@ services:
       - ./data:/root/data
 
   train:
-    image: marcpartensky/ialab
+    image: marcpartensky/ialab:train
     volumes:
       - ./data:/root/data
     environment:
