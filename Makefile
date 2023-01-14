@@ -1,5 +1,5 @@
 server:
-	./server.py
+	PORT=8000 FLASK_DEBUG=yes ./server.py
 bot:
 	./bot.py
 train:

@@ -29,7 +29,7 @@ COPY static static
 
 ENV HOST=0.0.0.0
 ENV PORT=80
-ENV DEBUG=true
+ENV FLASK_DEBUG=true
 
 # ENTRYPOINT ["flask", "run"]
 ENTRYPOINT ["gunicorn", "server:app"]
