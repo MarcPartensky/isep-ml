@@ -8,7 +8,7 @@ download:
 	./download.sh
 update:
 	pipenv update
-	pipenv lock -r > requirements.txt
+	pipenv run pip freeze > requirements.txt
 build: update
 	docker-compose build
 push: build
