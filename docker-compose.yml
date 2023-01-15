@@ -3,7 +3,7 @@ services:
   web:
     image: marcpartensky/ialab:latest
     ports:
-      - 8000:80
+      - "8000:80"
     build:
       target: web
     # volumes:
