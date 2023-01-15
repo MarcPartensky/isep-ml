@@ -24,6 +24,7 @@ RUN pip install -r requirements.txt
 
 COPY data data
 COPY bot.py server.py ./
+COPY context.yml ./
 COPY templates templates
 COPY static static
 
