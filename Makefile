@@ -1,7 +1,7 @@
 server:
-	PORT=8000 FLASK_DEBUG=yes ./server.py
+	CHECKPOINTS=yes PORT=8000 FLASK_DEBUG=yes ./server.py
 bot:
-	./bot.py
+	CHECKPOINTS=yes ./bot.py
 train:
 	docker compose up --build -d train
 download:
