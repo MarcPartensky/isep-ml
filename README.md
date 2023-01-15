@@ -1,5 +1,4 @@
-# IALab
-Chatbot API using [based on a pytorch tutorial](https://pytorch.org/tutorials/beginner/chatbot_tutorial.html) hosted on https://ialab.marcpartensky.com.
+# ISEP ML
 
 ## Usage
 ![hi](https://cdn.discordapp.com/attachments/729992302575091718/820346968995266611/ialab.png)
@@ -8,13 +7,13 @@ Chatbot API using [based on a pytorch tutorial](https://pytorch.org/tutorials/be
 
 ### Using [httpie](https://httpie.io/)
 ```sh
-http -f POST https://ialab.marcpartensky.com message="how are you"
+http -f POST https://ml.marcpartensky.com message="how are you"
 # running locally after cloning the repo
 http -f POST localhost:8000 message="how are you"
 ```
 ### Using [curl](https://curl.se/)
 ```sh
-curl -sX POST -F message="message how are you" https://ialab.marcpartensky.com
+curl -sX POST -F message="message how are you" https://ml.marcpartensky.com
 # running locally after cloning
 curl -sX POST -F message="message how are you" localhost:8000
 # using ask.sh after cloning
@@ -29,7 +28,7 @@ curl -sX POST -F message="message how are you" localhost:8000
 
 ## Deploy with docker
 ```sh
-docker run -p 8000:8000 marcpartensky/ialab
+docker run -p 8000:80 marcpartensky/isep-ml
 # or using docker-compose after cloning
 docker-compose up -d
 ```
@@ -41,7 +40,7 @@ docker-compose up -d
 
 ### Commands
 ```sh
-git clone https://github.com/marcpartensky/ialab
+git clone https://github.com/marcpartensky/isep-ml
 cd ialab
 pip install -r requirements.txt
 # Run the web server
@@ -49,6 +48,3 @@ pip install -r requirements.txt
 # Or run only the bot as cli
 ./bot.py
 ```
-
-## Train it yourself
-The datasets is available on [google drive](https://drive.google.com/drive/u/0/folders/1ruRm_mrIazj9utK9SZuscpGTz9ORcBah).
